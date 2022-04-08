@@ -1,0 +1,8 @@
+uvicorn==0.17.6
+pandas==1.4.1
+fastapi==0.75.0
+starlette==0.17.1
+pydantic==1.9.0
+streamlit==1.8.1
+requests==2.27.1
+matplotlib==3.5.1
