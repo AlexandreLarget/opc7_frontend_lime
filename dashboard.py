@@ -34,7 +34,7 @@ def main():
     # probabilité
     predict_btn = st.sidebar.button('Prédire')
     if predict_btn:
-        response1 = requests.post('http://127.0.0.1:8000/predict', data=json.dumps(id_data, allow_nan=True))
+        response1 = requests.post('https://opc7-backend.herokuapp.com/predict', data=json.dumps(id_data, allow_nan=True))
         prediction = json.loads(response1.content)
 
         if prediction['1']['0'] > 0.5:
@@ -48,7 +48,7 @@ def main():
             st.sidebar.error('Crédit Refusé (threshold 0.4)')
 
         # Explication
-        response_2 = requests.get("http://127.0.0.1:8000/gal_exp/" + str(input_id))
+        response_2 = requests.get("https://opc7-backend.herokuapp.com/gal_exp/" + str(input_id))
         explanation = json.loads(response_2.content)
 
         explanation = pd.DataFrame(explanation)
