@@ -24,6 +24,8 @@ def main():
 
     data, liste_id = get_data('data/data_scaled_sample.csv')
 
+    st.sidebar.image('data/logo.png')
+
     input_id = st.sidebar.selectbox("Sélectionnez le numéro de client souhaité", liste_id)
 
     id_data = data[data['SK_ID_CURR'] == int(input_id)].drop("SK_ID_CURR", axis=1)
