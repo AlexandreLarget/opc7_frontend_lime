@@ -24,7 +24,7 @@ def main():
 
     data, liste_id = get_data('data/data_scaled_sample.csv')
 
-    st.sidebar.image('data/logo.png')
+    st.sidebar.image('data/logo.PNG')
 
     input_id = st.sidebar.selectbox("Sélectionnez le numéro de client souhaité", liste_id)
 
