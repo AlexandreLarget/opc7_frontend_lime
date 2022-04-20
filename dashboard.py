@@ -31,7 +31,7 @@ def main():
     # probabilité
     predict_btn = st.sidebar.button('Prédire')
     if predict_btn:
-        response1 = requests.get('https://opc7-backend-lime.herokuapp.com/predict/' + str(input_id))
+        response1 = requests.get('http://127.0.0.1:8000/predict/' + str(input_id))
         prediction = json.loads(response1.content)
 
         st.sidebar.write("Le modèle retourne une probabilité de solvabilité de :",str(round(prediction['1']['0'],2)),"%")
@@ -48,7 +48,7 @@ def main():
             st.sidebar.error('Crédit Refusé (threshold 0.4)')
 
         # Graphique
-        response_2 = requests.get("https://opc7-backend-lime.herokuapp.com/graph/" + str(input_id))
+        response_2 = requests.get("http://127.0.0.1:8000/graph/" + str(input_id))
         explanation = json.loads(response_2.content)
 
         explanation = pd.DataFrame(explanation)
@@ -63,7 +63,7 @@ def main():
 
         liste_col = explanation['ticks'].str.split(' ', expand=True)[0].values.tolist()
 
-        response_3 = requests.get("https://opc7-backend-lime.herokuapp.com/stats/"+ str(input_id))
+        response_3 = requests.get("http://127.0.0.1:8000/stats/"+ str(input_id))
         stats_client = json.loads(response_3.content)
 
         stats_client = pd.DataFrame(stats_client)
