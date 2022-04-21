@@ -61,7 +61,7 @@ def main():
 
         # Comparaison
 
-        liste_col = explanation['ticks'].str.split(' ', expand=True)[0].values.tolist()
+        liste_col = explanation['ticks'].tolist()
 
         response_3 = requests.get("https://opc7-backend-lime.herokuapp.com/stats/"+ str(input_id))
         stats_client = json.loads(response_3.content)
