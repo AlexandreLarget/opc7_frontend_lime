@@ -70,6 +70,8 @@ def main():
         stats_client = stats_client[liste_col]
         stats_client = stats_client.T
 
+        st.write(stats_client)
+
         # data sur les groupes
         stat_categ = get_dataframe('data/stats.csv')
         stat_categ = stat_categ.T
@@ -80,6 +82,7 @@ def main():
         new_colonnes = ['moy gpe 1', 'moy gpe 0', 'client']
         stat_final.set_axis(new_colonnes, axis=1, inplace=True)
 
+        st.write(stat_final)
 
         with st.expander("Comparaison par rapport aux groupes ayant et n'ayant pas eu de crédit"):
 
